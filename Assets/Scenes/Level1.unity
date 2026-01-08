@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 371878997}
   - component: {fileID: 371878999}
   - component: {fileID: 371879000}
+  - component: {fileID: 371879001}
   m_Layer: 0
   m_Name: BlueDude_0
   m_TagString: Untagged
@@ -427,6 +428,30 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 1607098764}
   capsuleSize: {x: 0.5, y: 0.2}
+  spriteRenderer: {fileID: 371878995}
+  playerAnimator: {fileID: 371879001}
+--- !u!95 &371879001
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371878994}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac60c66bd6a33e743b14e81889c24d56, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,10 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Vector2 capsuleSize = new Vector2(0.5f, 0.2f);
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Animator playerAnimator;
+    private bool isWalking = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +28,7 @@ public class Movement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        isWalking = true;
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -37,6 +42,20 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.linearVelocity = new Vector2(moveInput.x * speed, _rigidbody.linearVelocityY);
+
+        // Flip sprite using SpriteRenderer
+        if (moveInput.x > 0.1f)
+            spriteRenderer.flipX = true;
+        else if (moveInput.x < -0.1f)
+            spriteRenderer.flipX = false;
+
+        playerAnimator.SetBool("isWalking", isWalking);
+        
+        if (_rigidbody.linearVelocityX == 0)
+        {
+            isWalking = false;
+        }
+
     }
 
     private bool IsGrounded()
